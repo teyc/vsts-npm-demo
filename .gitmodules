@@ -1,0 +1,3 @@
+[submodule "vsts-npm-demo-submodule"]
+	path = vsts-npm-demo-submodule
+	url = https://github.com/teyc/vsts-npm-demo-submodule.git
