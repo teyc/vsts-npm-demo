@@ -6,14 +6,13 @@
 of packages to be installed. I suspect `npm install` is CPU bound and network bound.
 
 You can get around this by checking in your `node_modules` directory. However
-this can make your repository clunky.
+this clutters up your source repository, and causes merge difficulty when node_modules
+are added or removed.
 
 ## Solution
 
 Create another repository and commit your `node_modules`, then use `git submodule`
 to link these two repositories together.
-
- [github](https://github.com/teyc/vsts-npm-demo-submodule)
 
 1. Make sure you are using a 64bit version of nodejs.exe:
 
@@ -32,12 +31,14 @@ to link these two repositories together.
 
 6. In VSTS, enable submodule to be checked out
 
-   // TODO picture here
+   <img src="images/VstsGetSources.png" />
 
 7. Replace the `npm install` step with a Powershell step to move the directory
 
        Move-Item vsts-npm-demo-submodule/node_modules .
-       
+
+   <img src="images/VstsPowershell.png" />
+
 ## Potential issues
 
 ### node-sass
@@ -60,6 +61,10 @@ to work. See: https://github.com/sass/node-sass/releases
    you must update the git submodule hash in your primary repository.
 
        git submodule update --remote
+       git add vsts-npm-demo-submodule
+       git commit -m 'Update node_modules'
+
+
 
 
 
