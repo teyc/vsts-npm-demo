@@ -60,6 +60,7 @@ to work. See: https://github.com/sass/node-sass/releases
 3. Git submodules refer to a particular commit. If you check in new node modules
    you must update the git submodule hash in your primary repository.
 
+       git submodule init vsts-npm-demo-submodule
        git submodule update --remote
        git add vsts-npm-demo-submodule
        git commit -m 'Update node_modules'
